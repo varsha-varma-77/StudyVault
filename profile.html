@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Profile & Library | StudyVault</title>
+  <meta name="description" content="Manage your uploaded study notes and access bookmarked exam resources in your personal vault.">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+  <!-- Top Bar Contract -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-link">
+        <div class="brand-mark">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+          </svg>
+        </div>
+        <span>StudyVault</span>
+      </a>
+
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="resources.html" class="nav-link">Resources</a>
+        <a href="upload.html" class="nav-link">Upload</a>
+        <a href="profile.html" class="nav-link active">Profile</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="upload.html" class="btn btn-primary btn-sm header-cta">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="17 8 12 3 7 8"></polyline>
+            <line x1="12" y1="3" x2="12" y2="15"></line>
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          </svg>
+          <span>Share Notes</span>
+        </a>
+        <button id="mobileMenuToggle" class="mobile-menu-btn" aria-label="Toggle navigation menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Panel -->
+  <div id="mobileNavPanel" class="mobile-nav-panel">
+    <div class="mobile-nav-links">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="resources.html" class="mobile-nav-link">Resources</a>
+      <a href="upload.html" class="mobile-nav-link">Upload</a>
+      <a href="profile.html" class="mobile-nav-link active">Profile</a>
+      <a href="auth.html" class="mobile-nav-link">Account</a>
+    </div>
+  </div>
+
+  <main style="padding: 3rem 0 5rem;">
+    <div class="container">
+      <!-- Profile Hero Banner -->
+      <section class="profile-hero">
+        <div class="profile-identity">
+          <div id="userAvatar" class="profile-avatar font-heading">AM</div>
+          <div>
+            <h1 id="userName" class="profile-name font-heading">Alex Morgan</h1>
+            <p id="userAffiliation" class="profile-college">Institute of Technology · Computer Science</p>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 1.75rem; flex-wrap: wrap;">
+          <div class="profile-stats">
+            <div class="stat-item">
+              <div id="statUploadsCount" class="stat-val">0</div>
+              <div class="stat-label">Contributions</div>
+            </div>
+            <div class="stat-item">
+              <div id="statSavedCount" class="stat-val">0</div>
+              <div class="stat-label">Saved in Vault</div>
+            </div>
+          </div>
+          <button id="profileLogoutBtn" class="btn btn-secondary btn-sm" style="color: var(--text-secondary);">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+              <polyline points="16 17 21 12 16 7"></polyline>
+              <line x1="21" y1="12" x2="9" y2="12"></line>
+            </svg>
+            <span>Log Out</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Vault Segmented Tabs -->
+      <div class="tabs-bar">
+        <button id="tabSaved" class="tab-btn active">
+          Saved Resources (<span id="savedTabCount">0</span>)
+        </button>
+        <button id="tabUploads" class="tab-btn">
+          My Uploads (<span id="uploadsTabCount">0</span>)
+        </button>
+      </div>
+
+      <!-- Tab Content Area -->
+      <div id="profileGrid" class="resource-grid">
+        <!-- Rendered dynamically by js/profile.js -->
+      </div>
+    </div>
+  </main>
+
+  <script type="module" src="/js/main.js"></script>
+  <script type="module" src="/js/profile.js"></script>
+</body>
+</html>

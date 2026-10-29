@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browse Resources | StudyVault</title>
+  <meta name="description" content="Search and filter college study notes, question papers, and slides by Course Code, Department, and File Format.">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+  <!-- Top Bar Contract -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-link">
+        <div class="brand-mark">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+          </svg>
+        </div>
+        <span>StudyVault</span>
+      </a>
+
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="resources.html" class="nav-link active">Resources</a>
+        <a href="upload.html" class="nav-link">Upload</a>
+        <a href="profile.html" class="nav-link">Profile</a>
+      </nav>
+
+      <div class="header-actions">
+        <div id="headerAuthAction">
+          <a href="auth.html" class="btn btn-secondary btn-sm">Sign In</a>
+        </div>
+        <a href="upload.html" class="btn btn-primary btn-sm header-cta">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="17 8 12 3 7 8"></polyline>
+            <line x1="12" y1="3" x2="12" y2="15"></line>
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          </svg>
+          <span>Share Notes</span>
+        </a>
+        <button id="mobileMenuToggle" class="mobile-menu-btn" aria-label="Toggle navigation menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Panel -->
+  <div id="mobileNavPanel" class="mobile-nav-panel">
+    <div class="mobile-nav-links">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="resources.html" class="mobile-nav-link active">Resources</a>
+      <a href="upload.html" class="mobile-nav-link">Upload</a>
+      <a href="profile.html" class="mobile-nav-link">Profile</a>
+      <a href="auth.html" class="mobile-nav-link">Sign In / Register</a>
+    </div>
+  </div>
+
+  <main style="padding: 3rem 0 5rem;">
+    <div class="container">
+      <!-- Minimal Page Heading -->
+      <div style="margin-bottom: 2rem;">
+        <h1 style="font-size: 2.25rem; margin-bottom: 0.35rem;">Academic Repository</h1>
+        <p style="color: var(--text-muted); font-size: 0.9375rem;">Browse and download verified course materials filtered by subject and format.</p>
+      </div>
+
+      <!-- User-Confirmed Priority Filters: Course Code, Department, File Format -->
+      <section class="filter-toolbar">
+        <div class="filter-grid">
+          <!-- Text Search -->
+          <div class="filter-group">
+            <label for="filterSearch" class="filter-label">Search Query</label>
+            <input
+              type="text"
+              id="filterSearch"
+              class="form-input"
+              placeholder="Search by topic, keyword, or concept..."
+            >
+          </div>
+
+          <!-- Course Code Filter -->
+          <div class="filter-group">
+            <label for="filterCourseCode" class="filter-label">Course Code</label>
+            <select id="filterCourseCode" class="filter-select">
+              <option value="ALL">All Course Codes</option>
+              <option value="CS201">CS201 - Data Structures</option>
+              <option value="CS304">CS304 - Operating Systems</option>
+              <option value="CS402">CS402 - Software Engineering</option>
+              <option value="MATH102">MATH102 - Linear Algebra</option>
+              <option value="MATH210">MATH210 - Discrete Mathematics</option>
+              <option value="EE205">EE205 - Microprocessors</option>
+              <option value="EE302">EE302 - Digital Signal Processing</option>
+              <option value="ME203">ME203 - Fluid Mechanics</option>
+            </select>
+          </div>
+
+          <!-- Department Filter -->
+          <div class="filter-group">
+            <label for="filterDepartment" class="filter-label">Department</label>
+            <select id="filterDepartment" class="filter-select">
+              <option value="ALL">All Departments</option>
+              <option value="Computer Science">Computer Science</option>
+              <option value="Mathematics">Mathematics</option>
+              <option value="Electrical">Electrical</option>
+              <option value="Mechanical">Mechanical</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- File Format Segmented Filter Bar -->
+        <div class="format-filter-bar">
+          <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+            <span class="filter-label" style="margin: 0;">File Format:</span>
+            <div id="formatSegmentedControl" class="segmented-control">
+              <button class="segment-btn active" data-format="ALL">All</button>
+              <button class="segment-btn" data-format="PDF">PDF</button>
+              <button class="segment-btn" data-format="DOCX">DOCX</button>
+              <button class="segment-btn" data-format="PPTX">PPTX</button>
+              <button class="segment-btn" data-format="ZIP">ZIP</button>
+            </div>
+          </div>
+
+          <div class="filter-actions">
+            <span id="resultsCounter" class="results-count">Loading materials...</span>
+            <button id="resetFiltersBtn" class="btn btn-ghost btn-sm" style="font-size: 0.8125rem;">
+              Reset filters
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Results Grid -->
+      <div id="resourcesGrid" class="resource-grid">
+        <!-- Rendered dynamically via js/resources.js -->
+      </div>
+    </div>
+  </main>
+
+  <script type="module" src="/js/main.js"></script>
+  <script type="module" src="/js/resources.js"></script>
+</body>
+</html>
